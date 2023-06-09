@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/login" element={<Login host={host} />} />
+        <Route path="/" element={<Login host={host} />} />
         <Route path="/signup" element={<Register host={host} />} />
       </Routes>
     </div>

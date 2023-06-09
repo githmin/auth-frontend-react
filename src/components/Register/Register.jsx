@@ -86,7 +86,7 @@ const Register = (props) => {
         )}
       </div>
       <Btn name={"SIGN UP"} onClickProp={handelSignup} />
-      <div className="notReg" onClick={() => navigate("/login")}>
+      <div className="notReg" onClick={() => navigate("/")}>
         Already registered? Login here
       </div>
       <ToastContainer
