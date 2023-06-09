@@ -5,8 +5,11 @@ import axios from "axios";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Register = (props) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -60,6 +63,9 @@ const Register = (props) => {
         </div>
       </div>
       <Btn name={"SIGN UP"} onClickProp={handelSignup} />
+      <div className="notReg" onClick={() => navigate("/login")}>
+        Already registered? Login here
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={10000}
