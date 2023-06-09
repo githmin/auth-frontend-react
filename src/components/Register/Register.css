@@ -5,6 +5,5 @@
 .errorArea {
   text-align: center;
   color: red;
-  font-weight: 600;
-  /* height: 15px; */
+  font-size: 15px;
 }

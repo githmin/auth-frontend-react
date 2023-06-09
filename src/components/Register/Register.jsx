@@ -2,23 +2,28 @@ import React, { useState } from "react";
 import "./Register.css";
 import Btn from "../Buttons/Btn";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
 
 const Register = (props) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
+  const [vaidEmail, setValidEmail] = useState(true);
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
+
+  const isValidEmail = (email) => {
+    /\S+@\S+\.\S+/.test(email) ? setValidEmail(true) : setValidEmail(false);
+  };
 
   const handelSignup = () => {
     if (email === "" || password === "" || rePassword === "") {
       toast.warn("Please input all details");
       return;
-    } else if (password === rePassword) {
+    } else if (password === rePassword && vaidEmail) {
       const instance = axios.create({
         withCredentials: true,
         baseURL: props.host,
@@ -49,7 +54,18 @@ const Register = (props) => {
     formMain"
     >
       <div className="formInner">
-        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <input
+          placeholder="Email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+            isValidEmail(e.target.value);
+          }}
+        />
+        {vaidEmail || email === "" ? (
+          ""
+        ) : (
+          <div className="errorArea">Please Enter A Valid Email</div>
+        )}
         <input
           placeholder="Password"
           type="password"
@@ -65,7 +81,7 @@ const Register = (props) => {
         {password === rePassword ? (
           ""
         ) : (
-          <div className="errorArea">PASSWORDS DO NOT MATCH</div>
+          <div className="errorArea">Passwords do not match</div>
         )}
       </div>
       <Btn name={"SIGN UP"} onClickProp={handelSignup} />
