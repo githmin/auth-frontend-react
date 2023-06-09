@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Login from "./components/Login/Login";
 import { Route, Routes } from "react-router-dom";
+import Register from "./components/Register/Register";
 
 function App() {
   // eslint-disable-next-line
@@ -11,6 +12,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/login" element={<Login host={host} />} />
+        <Route path="/signup" element={<Register host={host} />} />
       </Routes>
     </div>
   );
