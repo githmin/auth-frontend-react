@@ -15,7 +15,10 @@ const Register = (props) => {
   const [rePassword, setRePassword] = useState("");
 
   const handelSignup = () => {
-    if (password === rePassword) {
+    if (email === "" || password === "" || rePassword === "") {
+      toast.warn("Please input all details");
+      return;
+    } else if (password === rePassword) {
       const instance = axios.create({
         withCredentials: true,
         baseURL: props.host,
