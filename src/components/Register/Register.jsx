@@ -58,9 +58,12 @@ const Register = (props) => {
           className={password === rePassword ? "match" : "notMatch"}
           onChange={(e) => setRePassword(e.target.value)}
         />
-        <div className="errorArea">
-          {password === rePassword ? "" : "PASSWORDS DO NOT MATCH"}
-        </div>
+
+        {password === rePassword ? (
+          ""
+        ) : (
+          <div className="errorArea">PASSWORDS DO NOT MATCH</div>
+        )}
       </div>
       <Btn name={"SIGN UP"} onClickProp={handelSignup} />
       <div className="notReg" onClick={() => navigate("/login")}>
