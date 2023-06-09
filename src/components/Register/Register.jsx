@@ -54,6 +54,7 @@ const Register = (props) => {
     formMain"
     >
       <div className="formInner">
+        <h1 className="title">SIGN UP</h1>
         <input
           placeholder="Email"
           onChange={(e) => {

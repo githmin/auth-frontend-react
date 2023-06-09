@@ -40,6 +40,7 @@ const Login = (props) => {
   return (
     <div className="formMain">
       <div className="formInner">
+        <h1 className="title">LOGIN</h1>
         <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
         <input
           placeholder="Password"
