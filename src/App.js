@@ -6,7 +6,7 @@ import Register from "./components/Register/Register";
 
 function App() {
   // eslint-disable-next-line
-  const [host, setHost] = useState("http://localhost:3001");
+  const [host, setHost] = useState("http://localhost:3001"); // Set backend url here
 
   return (
     <div className="App">

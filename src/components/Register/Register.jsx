@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Register.css";
 import Btn from "../Buttons/Btn";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,15 +15,18 @@ const Register = (props) => {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
 
+  // Check email validity according to RegExpressions
   const isValidEmail = (email) => {
     /\S+@\S+\.\S+/.test(email) ? setValidEmail(true) : setValidEmail(false);
   };
 
   const handelSignup = () => {
+    // Check if all input fields are filled
     if (email === "" || password === "" || rePassword === "") {
       toast.warn("Please input all details");
       return;
     } else if (password === rePassword && vaidEmail) {
+      //API call if passwords match and email is valid
       const instance = axios.create({
         withCredentials: true,
         baseURL: props.host,
@@ -35,9 +38,8 @@ const Register = (props) => {
           password,
         })
         .then(
-          (response) => {
-            console.log(response);
-            if (response.status === 200) {
+          (res) => {
+            if (res.status === 200) {
               toast.success("Signup Successfull");
             }
           },
@@ -53,6 +55,7 @@ const Register = (props) => {
       className="
     formMain"
     >
+      {/* Form start*/}
       <div className="formInner">
         <h1 className="title">SIGN UP</h1>
         <input
@@ -62,11 +65,13 @@ const Register = (props) => {
             isValidEmail(e.target.value);
           }}
         />
+        {/* Display error if email is not valid */}
         {vaidEmail || email === "" ? (
           ""
         ) : (
           <div className="errorArea">Please Enter A Valid Email</div>
         )}
+        {/* --- Error display end --- */}
         <input
           placeholder="Password"
           type="password"
@@ -79,16 +84,22 @@ const Register = (props) => {
           onChange={(e) => setRePassword(e.target.value)}
         />
 
+        {/* Display error  if passwords do not match */}
         {password === rePassword ? (
           ""
         ) : (
           <div className="errorArea">Passwords do not match</div>
         )}
+        {/* --- Error display end --- */}
       </div>
       <Btn name={"SIGN UP"} onClickProp={handelSignup} />
+
+      {/* Nav to Login page */}
       <div className="notReg" onClick={() => navigate("/")}>
         Already registered? Login here
       </div>
+
+      {/* Toast Message Container  --- Keep under all other components*/}
       <ToastContainer
         position="top-right"
         autoClose={10000}
