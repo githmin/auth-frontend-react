@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./Login.css";
 import Btn from "../Buttons/Btn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = (props) => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,9 +32,7 @@ const Login = (props) => {
           }
         },
         (error) => {
-          toast.error(
-            "Please check your credintials and try again!"
-          );
+          toast.error("Please check your credintials and try again!");
         }
       );
   };
@@ -48,7 +48,9 @@ const Login = (props) => {
         />
       </div>
       <Btn name={"LOGIN"} onClickProp={handleLogin} />
-      <Link className="notReg">Not registered yet?</Link>
+      <div className="notReg" onClick={() => navigate("/signup")}>
+        Not registered yet? Register here
+      </div>
       <ToastContainer
         position="top-right"
         autoClose={10000}
