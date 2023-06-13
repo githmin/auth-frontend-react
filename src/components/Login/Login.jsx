@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Login = (props) => {
   const navigate = useNavigate();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,6 +36,10 @@ const Login = (props) => {
       );
   };
 
+  const google = () => {
+    window.open("http://localhost:3001/auth/google", "_self");
+  };
+
   return (
     <div className="formMain">
       {/* Form start*/}
@@ -54,7 +58,10 @@ const Login = (props) => {
       <div className="notReg" onClick={() => navigate("/signup")}>
         Not registered yet? Register here
       </div>
-
+      <div className="loginButton google" onClick={google}>
+        <img alt="" className="icon" />
+        Google
+      </div>
       {/* Toast Message Container  --- Keep under all other components*/}
       <ToastContainer
         position="top-right"
