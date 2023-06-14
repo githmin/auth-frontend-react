@@ -38,6 +38,8 @@ const Login = (props) => {
       );
   };
 
+  // Oauth Login
+
   const google = () => {
     window.open("http://localhost:3001/auth/google", "_self");
   };
@@ -68,6 +70,7 @@ const Login = (props) => {
         <div className="orContainerLine"></div>
       </div>
 
+      {/* Oauth Login */}
       <div className="OauthLogin">
         <div className="loginButton google" onClick={google}>
           <img src={googleImg} alt="" className="icon" /> &nbsp; Login with
