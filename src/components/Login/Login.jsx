@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import Btn from "../Buttons/Btn";
 import axios from "axios";
+import facebookImg from "../../assets/facebookImg.png";
+import googleImg from "../../assets/googleImg.png";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -39,6 +41,9 @@ const Login = (props) => {
   const google = () => {
     window.open("http://localhost:3001/auth/google", "_self");
   };
+  const facebook = () => {
+    window.open("http://localhost:3001/auth/facebook", "_self");
+  };
 
   return (
     <div className="formMain">
@@ -58,9 +63,20 @@ const Login = (props) => {
       <div className="notReg" onClick={() => navigate("/signup")}>
         Not registered yet? Register here
       </div>
-      <div className="loginButton google" onClick={google}>
-        <img alt="" className="icon" />
-        Google
+      <div className="orContainer">
+        <div className="orContainerLine"></div> &nbsp; Or &nbsp;
+        <div className="orContainerLine"></div>
+      </div>
+
+      <div className="OauthLogin">
+        <div className="loginButton google" onClick={google}>
+          <img src={googleImg} alt="" className="icon" /> &nbsp; Login with
+          Google
+        </div>
+        <div className="loginButton facebook" onClick={facebook}>
+          <img src={facebookImg} alt="" className="icon" />
+          &nbsp; Login with Facebook
+        </div>
       </div>
       {/* Toast Message Container  --- Keep under all other components*/}
       <ToastContainer
