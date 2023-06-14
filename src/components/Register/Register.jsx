@@ -6,6 +6,7 @@ import Btn from "../Buttons/Btn";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import OauthLogin from "../Oauth/OauthLogin";
 
 const Register = (props) => {
   const navigate = useNavigate();
@@ -98,6 +99,17 @@ const Register = (props) => {
       <div className="notReg" onClick={() => navigate("/")}>
         Already registered? Login here
       </div>
+
+      <div className="orContainer">
+        <div className="orContainerLine"></div> &nbsp; Or &nbsp;
+        <div className="orContainerLine"></div>
+      </div>
+
+      {/* Oauth Component */}
+      <OauthLogin
+        fbText={"Signup with Facebook"}
+        gText={"Signup with Google"}
+      ></OauthLogin>
 
       {/* Toast Message Container  --- Keep under all other components*/}
       <ToastContainer

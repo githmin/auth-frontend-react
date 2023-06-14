@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import Btn from "../Buttons/Btn";
 import axios from "axios";
-import facebookImg from "../../assets/facebookImg.png";
-import googleImg from "../../assets/googleImg.png";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import OauthLogin from "../Oauth/OauthLogin";
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -38,15 +37,6 @@ const Login = (props) => {
       );
   };
 
-  // Oauth Login
-
-  const google = () => {
-    window.open("http://localhost:3001/auth/google", "_self");
-  };
-  const facebook = () => {
-    window.open("http://localhost:3001/auth/facebook", "_self");
-  };
-
   return (
     <div className="formMain">
       {/* Form start*/}
@@ -70,17 +60,12 @@ const Login = (props) => {
         <div className="orContainerLine"></div>
       </div>
 
-      {/* Oauth Login */}
-      <div className="OauthLogin">
-        <div className="loginButton google" onClick={google}>
-          <img src={googleImg} alt="" className="icon" /> &nbsp; Login with
-          Google
-        </div>
-        <div className="loginButton facebook" onClick={facebook}>
-          <img src={facebookImg} alt="" className="icon" />
-          &nbsp; Login with Facebook
-        </div>
-      </div>
+      {/* Oauth Component */}
+      <OauthLogin
+        fbText={"Login with Facebook"}
+        gText={"Login with Google"}
+      ></OauthLogin>
+
       {/* Toast Message Container  --- Keep under all other components*/}
       <ToastContainer
         position="top-right"

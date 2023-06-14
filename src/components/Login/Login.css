@@ -4,35 +4,3 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-.orContainer {
-  color: #38383974;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.orContainerLine {
-  border: 1px solid #38383974;
-  width: 50px;
-  height: 0;
-}
-
-.loginButton {
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  padding: 7px;
-  margin: 5px;
-  justify-content: center;
-  cursor: pointer;
-  background-color: #3838392b;
-}
-
-.loginButton:hover {
-  background-color: #38383948;
-}
-.icon {
-  max-width: 25px;
-}
