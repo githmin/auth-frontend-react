@@ -7,6 +7,7 @@ import Btn from "../Buttons/Btn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import OauthLogin from "../Oauth/OauthLogin";
+import GuestBtn from "../Buttons/GuestBtn";
 
 const Register = (props) => {
   const navigate = useNavigate();
@@ -110,6 +111,8 @@ const Register = (props) => {
         fbText={"Signup with Facebook"}
         gText={"Signup with Google"}
       ></OauthLogin>
+
+      <GuestBtn />
 
       {/* Toast Message Container  --- Keep under all other components*/}
       <ToastContainer
