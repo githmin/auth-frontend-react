@@ -6,8 +6,8 @@
   margin: -10px;
   justify-content: center;
   cursor: pointer;
-  /* background-color: #3838392b; */
-  /* width: 3rem; */
+  background-color: #3838392b;
+  width: 12rem;
 }
 
 .loginGuestButton:hover {

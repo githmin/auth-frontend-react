@@ -21,6 +21,7 @@
   justify-content: center;
   cursor: pointer;
   background-color: #3838392b;
+  width: 12rem;
 }
 
 .loginButton:hover {
